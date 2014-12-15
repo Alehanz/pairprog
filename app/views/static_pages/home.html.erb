@@ -1,0 +1,6 @@
+<h1>StaticPages#home</h1>
+<%= link_to "Sign in with Github", user_omniauth_authorize_path(:github) %>
+Or <%= link_to "sign up", new_user_registration_path %> 
+<% if user_signed_in? %>
+  <%= link_to('Logout', destroy_user_session_path, :method => :delete) %>
+<% end %>

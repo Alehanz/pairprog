@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="dataSourceStorageLocal">
+    <data-source name="Rails pairprog: development" uuid="2416caef-b40b-4b33-84e8-b8aefd2798b9">
+      <first-sync>true</first-sync>
+    </data-source>
+    <data-source name="Rails pairprog: test" uuid="ed7d622f-d96b-402b-b0d4-64c48301d4ea">
+      <first-sync>true</first-sync>
+    </data-source>
+  </component>
+</project>
