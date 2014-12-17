@@ -1,2 +1,9 @@
-<% @user.name %>
-Edit information
+<%= @user.name %>
+<%= @user.username %>
+<%= @user.email %>
+
+<% if @user == current_user %>
+  <%= link_to "Edit information", edit_user_registration_path %>
+<% end %>
+
+<%= link_to "Back", :back %>
