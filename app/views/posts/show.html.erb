@@ -1,3 +1,8 @@
-<%= @post.title %>
-<%= @post.description %>
-<%= button_to "Edit", edit_post_path(@post), :method => :get %>
+<div class="row">
+  <div class="col-md-6">
+    <%= @post.title %>
+    <%= @post.description %>
+    <%= button_to "Edit", edit_post_path(@post), :method => :get %>
+  </div>
+</div>
+</div>

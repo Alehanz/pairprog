@@ -17,6 +17,9 @@ gem 'arel', '6.0.0.beta2'
 gem 'omniauth-github'
 gem 'figaro'
 
+gem 'bootstrap-sass'
+gem 'autoprefixer-rails'
+
 group :development, :test do
   gem 'rspec-rails'
   gem 'shoulda-matchers', require: false

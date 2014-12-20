@@ -1,11 +1,21 @@
-<%= form_for @post do |f| %>
-  <%= render 'shared/error_messages', object: f.object %>
+<div class="row">
+<div class="col-md-6">
+  <%= form_for @post, html: {class: 'form'} do |f| %>
+    <%= render 'shared/error_messages', object: f.object %>
 
-  <%= f.label :title %>
-  <%= f.text_field :title %><br />
+    <div class="field form-group">
+      <%= f.label :title %>
+      <%= f.text_field :title, class: 'form-control' %><br />
+    </div>
 
-  <%= f.label :description %>
-  <%= f.text_area :description %>
+    <div class="field form-group">
+      <%= f.label :description %>
+      <%= f.text_area :description, class: 'form-control' %>
+    </div>
 
-  <%= f.submit %>
-<% end %>
+    <div class="actions form-group">
+      <%= f.submit %>
+    </div>
+  <% end %>
+</div>
+</div>

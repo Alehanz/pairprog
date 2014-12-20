@@ -1,0 +1,40 @@
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+h2 {
+  text-align: center;
+}
+
+/* login page */
+
+.form-wrap {
+  width: 30%;
+  margin: 0 auto;
+}
+
+.checkbox {
+  margin-bottom: 20px;
+  position: relative;
+  .character-checkbox {
+    width: 25px;
+    height: 25px;
+    border-radius: 3px;
+    border: 1px solid;
+    vertical-align: middle;
+    display: inline-block;
+  }
+}
+
+/* footer */
+
+#footer {
+  font-size: 12px;
+  text-align: center;
+  p {
+    margin-bottom: 0;
+  }
+}
+
+/* header */
+
+
