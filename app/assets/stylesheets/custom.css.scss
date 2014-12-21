@@ -1,40 +1,69 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+* {
+  margin: 0;
+}
+
+body {
+  margin-top: 0px;
+}
+
 h2 {
   text-align: center;
 }
 
-/* login page */
-
-.form-wrap {
-  width: 30%;
-  margin: 0 auto;
+h5 {
+  text-align: center;
 }
 
-.checkbox {
-  margin-bottom: 20px;
-  position: relative;
-  .character-checkbox {
-    width: 25px;
-    height: 25px;
-    border-radius: 3px;
-    border: 1px solid;
-    vertical-align: middle;
-    display: inline-block;
+a {
+  color: gray;
+}
+
+html, body {
+  height: 100%;
+}
+
+/* navbar */
+
+#logo {
+  float: left;
+  padding-top: 7px;
+  color: white;
+  font-weight: bold;
+  font-size: 1.7em;
+  &:hover {
+    text-decoration: none;
   }
+}
+
+#search {
+  margin-top: 8px;
+}
+
+/* wrapper */
+
+.wrapper-container {
+  min-height: 100%;
+  height: auto !important;
+  height: 100%;
+  margin: 0 auto -500px;
 }
 
 /* footer */
 
-#footer {
-  font-size: 12px;
-  text-align: center;
+.push {
+  height: 70px;
+}
+
+.navbar-bottom {
+  height: auto;
   p {
-    margin-bottom: 0;
+    text-align: center;
+    font-size: small;
   }
 }
 
-/* header */
-
+/* posts */
 

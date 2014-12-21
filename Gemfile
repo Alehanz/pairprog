@@ -19,6 +19,7 @@ gem 'figaro'
 
 gem 'bootstrap-sass'
 gem 'autoprefixer-rails'
+gem 'will_paginate'
 
 group :development, :test do
   gem 'rspec-rails'
