@@ -1,6 +1,7 @@
 class PostsController < ApplicationController
   def index
-    @posts = Post.paginate(:page => params[:page], :per_page => 30)
+    @posts = Post.paginate(:page => params[:page], :per_page => 30).
+      order("created_at DESC")
   end
 
   def show
@@ -13,9 +14,10 @@ class PostsController < ApplicationController
 
   def create
     @post = Post.create(post_params)
+    @post.user_id = current_user.id if current_user
     if @post.save
       flash[:success] = "Post created!"
-      redirect_to posts_path
+      redirect_to @post
     else
       flash[:alert]
       render :new
@@ -40,6 +42,6 @@ class PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:title, :description)
+    params.require(:post).permit(:title, :description, :bootsy_image_gallery_id)
   end
 end

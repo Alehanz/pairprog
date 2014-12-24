@@ -1,20 +1,20 @@
 <div class="row">
-<div class="col-md-6">
-  <%= form_for @post, html: {class: 'form'} do |f| %>
-    <%= render 'shared/error_messages', object: f.object %>
+<div class="col-md-9">
+  <%= form_for @post do |f| %>
+    <%= render "shared/error_messages", object: f.object %>
 
-    <div class="field form-group">
+    <div class="form-group">
       <%= f.label :title %>
-      <%= f.text_field :title, class: 'form-control' %><br />
+      <%= f.text_field :title, class: "form-control", placeholder: "Max. 100 characters" %><br />
     </div>
 
-    <div class="field form-group">
+    <div class="form-group">
       <%= f.label :description %>
-      <%= f.text_area :description, class: 'form-control' %>
+      <%= f.bootsy_area :description, class: "form-control", editor_options: { alert_unsaved: false } %>
     </div>
 
-    <div class="actions form-group">
-      <%= f.submit %>
+    <div class="form-group">
+      <%= f.submit class: "btn btn-success" %>
     </div>
   <% end %>
 </div>

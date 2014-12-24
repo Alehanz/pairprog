@@ -1,9 +1,28 @@
-<%= @user.name %>
-<%= @user.username %>
-<%= @user.email %>
-
-<% if @user == current_user %>
-  <%= link_to "Edit information", edit_user_registration_path %>
-<% end %>
-
-<%= link_to "Back", :back %>
+<div class="row">
+<div class="col-md-12">
+  <div class="showpost">
+    <table class="table">
+      <tr>
+        <td>
+          user: <%= @user.name %>, <%= @user.username %>
+      </td>
+      </tr>
+      <tr>
+        <td>
+          email: <%= @user.email %>
+      </td>
+      </tr>
+      <tr>
+        <td>
+          <% if @user == current_user %>
+            <%= link_to "Edit information", edit_user_registration_path %>
+          <% end %>
+        </td>
+      </tr>
+    </table>
+  </div>
+  <div class="form-group">
+    <%= link_to "Back", :back, style: "text-decoration:none;", class: "btn btn-success" %>
+  </div>
+</div>
+</div>

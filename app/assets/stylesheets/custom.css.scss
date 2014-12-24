@@ -1,12 +1,23 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+/* mixins */
+
+@mixin box_sizing {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+/* universal */
+
 * {
   margin: 0;
 }
 
 body {
   margin-top: 0px;
+  background-image: url("/images/pattern.png");
 }
 
 h2 {
@@ -21,8 +32,13 @@ a {
   color: gray;
 }
 
+
 html, body {
   height: 100%;
+}
+
+textarea {
+  height: 200px;
 }
 
 /* navbar */
@@ -66,4 +82,60 @@ html, body {
 }
 
 /* posts */
+
+.list-controls {
+  .btn {
+    float: left;
+    margin-bottom: 10px;
+    margin-left: -15px;
+    padding: 0px;
+  }
+}
+
+th {
+  background-color: white;
+  color: #919191;
+}
+
+table {
+  border-top: 2px solid #F9F9F9;
+  border-bottom: 2px solid #F9F9F9;
+}
+
+.table-striped>tbody>tr:nth-child(even)>td, 
+.table-striped>tbody>tr:nth-child(even)>th {
+  background-color: white;
+  padding: 16px;
+}
+
+.table-striped>tbody>tr:nth-child(odd)>td, 
+.table-striped>tbody>tr:nth-child(odd)>th {
+  padding: 16px;
+}
+
+.form-group {
+  textarea.form-control {
+    height: 250px;
+  }
+  ul.wysihtml5-toolbar {
+    margin-left: 2px;
+  }
+  .btn-success {
+    margin-left: 2px;
+  }
+  label {
+    margin-left: 2px;
+  }
+}
+
+.col-md-12 {
+  .showpost {
+    background-color: #F9F9F9;
+    margin-top: 38px;
+    .table tr th {
+      background-color: #F9F9F9;
+      color: black;
+    }
+  }
+}
 
