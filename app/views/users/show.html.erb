@@ -4,7 +4,11 @@
     <table class="table">
       <tr>
         <td>
-          user: <%= @user.name %>, <%= @user.username %>
+          user:
+          <% if @user.name %>
+            <%= @user.name %> 
+          <% end %>
+          <%= @user.username %>
       </td>
       </tr>
       <tr>

@@ -11,9 +11,12 @@
     </table>
   </div>
   <div class="form-group">
-  <% if current_user == @post.user %>
-    <%= button_to "Edit", edit_post_path(@post), :method => :get, class: "btn btn-success" %>
-  <% end %>
+    <% if current_user == @post.user %>
+      <%= button_to "Edit", edit_post_path(@post), :method => :get, class: "btn btn-success pull-left" %>
+    <% end %>
+  </div>
+  <div class="form-group">
+    <%= link_to "Back", :back, class: "btn btn-success", style: "margin-left:8px;" %>
   </div>
 </div>
 </div>

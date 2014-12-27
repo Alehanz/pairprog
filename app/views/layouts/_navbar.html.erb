@@ -1,5 +1,6 @@
-<nav class="navbar navbar-default navbar-static-top" role="navigation">
-  <div class="container">
+<div class="container">
+<nav class="navbar navbar-default" role="navigation">
+  <div class="container-fluid">
     <div class="navbar-header">
       <%= link_to "PairProg", "/", html: {class: "navbar-brand"}, id: "logo" %>
     </div>
@@ -16,12 +17,12 @@
       <div id="search">
         <form class="navbar-form navbar-right" role="search">
           <div class="form-group">
-            <input type="text" class="from-control" placeholder="Search">
+            <input type="text" class="form-control" placeholder="Search", style: "margin-top:-10px;">
           </div>
-          <button type="submit" class="btn btn-xs">Submit</button>
+          <button type="submit" class="btn btn-xs btn-success">Submit</button>
         </form>
       </div>
     </div>
   </div>
 </nav>
-
+</div>
