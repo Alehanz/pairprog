@@ -11,7 +11,7 @@ feature "user creates new post" do
 
     click_button "New Post"
     fill_in "post_title", with: "Rails store"
-    fill_in "post_description", with: "Looking for a partner to make a store"
+    fill_in "post_description", with: "Description"
     click_button "Create Post"
 
     expect(page).to have_content("Rails store")
@@ -26,5 +26,6 @@ feature "user creates new post" do
 
     expect(page).to have_content("Title can't be blank")
     expect(page).to have_content("Description can't be blank")
+
   end
 end

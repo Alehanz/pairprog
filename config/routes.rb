@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   mount Bootsy::Engine => '/bootsy', as: 'bootsy'
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks", :registrations => "users/registrations" }
+  resources :users, only: [:show]
 
   devise_scope :user do
     authenticated :user do
@@ -16,5 +17,4 @@ Rails.application.routes.draw do
   get '/home' => 'static_pages#home'
   get '/about' => 'static_pages#about'
   get '/contact' => 'static_pages#contact'
-  resources :users, only: [:show]
 end

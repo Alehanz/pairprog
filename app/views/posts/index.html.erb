@@ -20,16 +20,8 @@
               <%= link_to post.title, post, style: "text-decoration:none;" %>
               <h6>
                 posted by
-                <% if !post.user.provider %>
-                  <%= post.user.username %>
-                <% elsif post.user.provider && post.user.username %>
-                  <%= post.user.username %>
-                <% elsif post.user.name %>
-                  <%= post.user.name %>
-                <% else %>
-                  <%= post.user.email %>
-                  <%= time_ago_in_words(post.created_at) + " ago" %>
-                <% end %>
+                <%= post.user.email %>
+                <%= time_ago_in_words(post.created_at) + " ago" %>
               </h6>
             </td>
             <td>0 Comments</td>

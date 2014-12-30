@@ -21,6 +21,7 @@ gem 'bootstrap-sass'
 gem 'autoprefixer-rails'
 gem 'will_paginate'
 gem 'bootsy'
+gem 'capybara-screenshot', :group => :test
 
 group :development, :test do
   gem 'rspec-rails'
@@ -30,5 +31,6 @@ group :development, :test do
   gem 'byebug'
   gem 'web-console', '~> 2.0.0.beta4'
   gem 'spring'
+  gem 'database_cleaner'
 end
 

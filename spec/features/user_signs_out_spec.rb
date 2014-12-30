@@ -8,7 +8,7 @@ feature "User signs out" do
     fill_in "user_password", with: user.password
     click_button "Log in"
 
-    click_link "Logout"
+    click_link "Log out"
 
     expect(current_path).to eq "/"
   end

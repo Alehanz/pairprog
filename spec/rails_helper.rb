@@ -4,6 +4,7 @@ require 'spec_helper'
 require File.expand_path("../../config/environment", __FILE__)
 require 'rspec/rails'
 require 'capybara/rails'
+require 'capybara-screenshot/rspec'
 require 'shoulda-matchers'
 require 'devise'
 # Add additional requires below this line. Rails is not loaded until this point!
@@ -35,9 +36,10 @@ RSpec.configure do |config|
   
   config.include Devise::TestHelpers, :type => :controller
   config.include FactoryGirl::Syntax::Methods
-  config.use_transactional_fixtures = true
+  config.use_transactional_fixtures = false
   config.infer_spec_type_from_file_location!
   config.include Features::SessionHelpers, type: :feature
+  config.filter_run_excluding :broken => true
 
   # Remove this line if you're not using ActiveRecord or ActiveRecord fixtures
   config.fixture_path = "#{::Rails.root}/spec/fixtures"
