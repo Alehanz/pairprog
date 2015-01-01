@@ -10,7 +10,7 @@ default: &default
   pool: 5
   timeout: 5000
   username: Alehanz
-  paswword: 
+  paswword:
 
 development:
   <<: *default
