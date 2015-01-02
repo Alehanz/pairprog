@@ -1,7 +1,7 @@
 # Pairprog
 
 Building a simple forum-like message board aimed to help people find 
-pair-programming partners online.
+pair programming partners online.
 
 ## Trying to stick to this:
 
