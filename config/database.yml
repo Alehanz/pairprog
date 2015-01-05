@@ -10,7 +10,8 @@ default: &default
   pool: 5
   timeout: 5000
   username: Alehanz
-  paswword:
+  paswword: Le9072325
+  min_messages: warning
 
 development:
   <<: *default

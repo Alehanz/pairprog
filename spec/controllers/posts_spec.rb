@@ -10,7 +10,12 @@ describe PostsController, :type => :controller do
     it "creates a new post" do
       allow(controller).to receive(:sign_in)
 
-      post :create, default_params
+      post :create, { id: @user.id, post:
+                      { title: "Title",
+                        description: "Description"
+                      }
+                    }
+
 
       expect(Post.count).to eq(1)
     end
@@ -21,20 +26,26 @@ describe PostsController, :type => :controller do
     before(:each) do
       @user = create(:user)
       @post = create(:post)
+      @post.user_id = @user.id
     end
 
     it "updates post with valid info" do
       allow(controller).to receive(:sign_in)
 
-      post :update, default_params
+      put :update, { id: @post.id, post:
+                      { title: nil,
+                        description: nil
+                      }
+                    }
 
-      expect(response).to redirect_to post_path
+
+      expect(response).to render_template(:edit)
     end
 
     it "redirect to edit_path if info is invalid" do
       allow(controller).to receive(:sign_in)
 
-      post :update, { id: @user.id, post:
+      put :update, { id: @post.id, post:
                       { title: nil,
                         description: nil
                       }
@@ -42,15 +53,6 @@ describe PostsController, :type => :controller do
 
       expect(response).to render_template(:edit)
     end
-  end
-
-  def default_params
-    { id: @user.id, post:
-      {
-        title: "Post title",
-        description: "Post description" 
-      }
-    }
   end
 
 end
