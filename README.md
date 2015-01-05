@@ -9,5 +9,5 @@ pair programming partners online.
 
 ## Feel free to contribute
 
-The current TODO list is located at my [PT
-page](https://www.pivotaltracker.com/n/projects/1230476)
+The current TODO list is located at project's [Trello
+board](https://trello.com/b/CCIgwbNj/pairprog-io)
