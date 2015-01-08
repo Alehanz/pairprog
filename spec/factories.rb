@@ -14,4 +14,11 @@ FactoryGirl.define do
     sequence(:description) { |n| "description of the post #{n}" }
   end
 
+  factory :comment do
+    user
+    post
+
+    sequence(:comment_body) { |n| "comment body text #{n}" }
+  end
+
 end

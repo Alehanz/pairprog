@@ -13,7 +13,10 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :posts, only: [:index, :new, :create, :show, :edit, :update]
+  resources :posts, only: [:index, :new, :create, :show, :edit, :update] do
+    resources :comments, only: [:index, :new, :create, :destroy], controller: "comments"
+  end
+
   get '/home' => 'static_pages#home'
   get '/about' => 'static_pages#about'
   get '/contact' => 'static_pages#contact'
