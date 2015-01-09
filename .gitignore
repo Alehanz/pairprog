@@ -31,3 +31,9 @@ coverage
 # Ignore bootstrap.css
 /vendor/assers/stylesheets/bootstrap.css
 vendor
+
+# Ignore glyphicons
+/app/assets/stylesheets/glyphicons-halflings-regular.eot
+/app/assets/stylesheets/glyphicons-halflings-regular.svg
+/app/assets/stylesheets/glyphicons-halflings-regular.ttf
+/app/assets/stylesheets/glyphicons-halflings-regular.woff
