@@ -83,8 +83,8 @@ feature "User comments on post" do
     fill_in "comment_comment_body", with: "Test comment"
     click_button "Add Comment"
 
-    click_button "Edit"
+    click_link "Edit"
 
-    expect(page).to have_content("Update comment")
+    expect(page).to have_content("Update Comment")
   end
 end

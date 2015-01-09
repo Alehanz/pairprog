@@ -14,7 +14,7 @@ Rails.application.routes.draw do
   end
 
   resources :posts, only: [:index, :new, :create, :show, :edit, :update] do
-    resources :comments, only: [:index, :new, :create, :destroy], controller: "comments"
+    resources :comments, only: [:index, :new, :create, :destroy, :edit, :update], controller: "comments"
   end
 
   get '/home' => 'static_pages#home'
