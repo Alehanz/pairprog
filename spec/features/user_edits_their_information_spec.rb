@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-feature "user edits their information" do
+feature "User edits their information" do
   before(:each) do
     @user = create(:user)
   end
@@ -36,5 +36,4 @@ feature "user edits their information" do
 
     expect(page).to have_content("Email can't be blank")
   end
-
 end

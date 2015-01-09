@@ -1,7 +1,7 @@
 require "rails_helper"
 
 feature "User signs out" do
-  scenario "properly" do
+  scenario "gets redirected to root_path" do
     user = create(:user)
     visit new_user_session_path
     fill_in "user_login", with: user.email

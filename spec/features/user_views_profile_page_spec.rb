@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-feature "user views profile page" do
+feature "User views profile page" do
   before(:each) do
     @user = create(:user)
     @user2 = create(:user)

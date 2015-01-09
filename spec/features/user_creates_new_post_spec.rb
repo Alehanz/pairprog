@@ -1,6 +1,6 @@
 require "rails_helper"
 
-feature "user creates new post" do
+feature "User creates new post" do
   before(:each) do
     @user = create(:user)
   end

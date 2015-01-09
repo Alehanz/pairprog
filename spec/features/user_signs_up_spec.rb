@@ -1,6 +1,6 @@
 require "rails_helper"
 
-describe "user signs up" do
+describe "User signs up" do
   scenario "with valid information" do
     visit "/"
     click_link "Sign up"

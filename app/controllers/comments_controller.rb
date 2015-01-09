@@ -9,6 +9,12 @@ class CommentsController < ApplicationController
   end
 
   def update
+    @post = Post.find(params[:post_id])
+    @comment = @post.comments.find(params[:id])
+    if @comment.update_attributes(comment_params)
+      flash[:success] = "Comment updated!"
+      redirect_to @comment.post
+    end
   end
 
   def create

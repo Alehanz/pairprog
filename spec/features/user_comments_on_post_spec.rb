@@ -8,21 +8,21 @@ feature "User comments on post" do
     @post.user_id = @user.id
   end
 
-  scenario "User can see the add comment button" do
+  scenario "can see the add comment button" do
     log_in(@user)
     visit post_path(@post)
 
     expect(page).to have_button "Add Comment"
   end
 
-  scenario "User can see the add comment text field" do
+  scenario "can see the add comment text field" do
     log_in(@user)
     visit post_path(@post)
 
     expect(page).to have_css("textarea.form-control.bootsy_text_area")
   end
 
-  scenario "User can add comment with valid info" do
+  scenario "can add comment with valid info" do
     log_in(@user)
     visit post_path(@post)
 
@@ -32,7 +32,7 @@ feature "User comments on post" do
     expect(page).to have_content("Test comment")
   end
 
-  scenario "User can't add comment with more than 3000 characters" do
+  scenario "can't add comment with more than 3000 characters" do
     log_in(@user)
     visit post_path(@post)
 
@@ -42,7 +42,7 @@ feature "User comments on post" do
     expect(page).to have_content("Comment body is too long")
   end
 
-  scenario "User can't add comment with an empty body" do
+  scenario "can't add comment with an empty body" do
     log_in(@user)
     visit post_path(@post)
 
@@ -52,7 +52,7 @@ feature "User comments on post" do
     expect(page).to have_content("Comment body can't be blank")
   end
 
-  scenario "User can delete their comment" do
+  scenario "can delete their comment" do
     log_in(@user)
     visit post_path(@post)
     fill_in "comment_comment_body", with: "Test comment"
@@ -63,7 +63,7 @@ feature "User comments on post" do
     expect(page).to have_content("Comment deleted!")
   end
 
-  scenario "User can't delete others comments" do
+  scenario "can't delete others comments" do
     log_in(@user2)
     visit post_path(@post)
     fill_in "comment_comment_body", with: "Test comment"
@@ -77,7 +77,7 @@ feature "User comments on post" do
     expect(page).not_to have_link "Delete"
   end
 
-  scenario "User can edit their comment" do
+  scenario "can edit their comment" do
     log_in(@user)
     visit post_path(@post)
     fill_in "comment_comment_body", with: "Test comment"
@@ -85,6 +85,9 @@ feature "User comments on post" do
 
     click_link "Edit"
 
-    expect(page).to have_content("Update Comment")
+    fill_in "comment_comment_body", with: "Updated comment"
+    click_button "Update Comment"
+
+    expect(page).to have_content("Comment updated!")
   end
 end

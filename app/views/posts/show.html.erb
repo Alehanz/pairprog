@@ -15,15 +15,12 @@
       <%= button_to "Edit", edit_post_path(@post), :method => :get, class: "btn btn-success pull-left" %>
     <% end %>
   </div>
-  <div class="form-group">
-    <%= link_to "Back", :back, class: "btn btn-success", style: "margin-left:8px;" %>
-  </div>
-  <%= form_for ([@post, @post.comments.build]) do |f| %>
+  <%= form_for ([@post, @comment]) do |f| %>
     <%= render 'shared/error_messages', object: f.object %>
 
     <div class="form-group">
       <%= f.label :comment %>
-      <%= f.bootsy_area :comment_body, class: "form-control", placeholder: "Max. 3000 characters" %>
+      <%= f.bootsy_area :comment_body, class: "form-control", placeholder: "Max. 3000 characters", style:"height:150px" %>
       <%= f.hidden_field :post_id, :value => @post.id %>
     </div>
 
@@ -34,14 +31,14 @@
   <div class="col-md-12">
     <div class="showcomments">
       <h3>Comments</h3>
-      <% @post.comments.each do |comment| %>
+      <% @comments.each do |comment| %>
         <p><%= comment.user.username || comment.user.email if comment.user %></p>
         <p><%= comment.created_at %></p>
         <br />
         <p><%= comment.comment_body %></p>
         <% if comment.user_id == current_user.id %>
           <p><%= link_to "Delete", [comment.post, comment], method: :delete, data: { confirm: "Are you sure?" } %></p>
-          <p><%= link_to "Edit", [:edit, comment.post, comment] %></p>
+          <p><%= link_to "Edit", edit_post_comment_path({:id => comment.id, :post_id => comment.post_id, :comment_body => comment.comment_body, :user_id => comment.user_id}) %></p>
         <% end %>
       <% end %>
     </div>

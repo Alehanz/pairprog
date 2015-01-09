@@ -1,11 +1,11 @@
 <div class="row">
 <div class="col-md-9">
-  <%= fields_for ([@post, @post.comments.build]) do |f| %>
+  <%= form_for ([@post, @comment]), :html => { :method => :put } do |f| %>
     <%= render "shared/error_messages", object: f.object %>
 
     <div class="form-group">
       <%= f.label :comment %>
-      <%= f.bootsy_area :comment_body, class: "form-control", placeholder: "Max. 3000 characters" %><br />
+      <%= f.bootsy_area :comment_body, value: params[:comment_body], class: "form-control", placeholder: "Max. 3000 characters" %><br />
     </div>
 
     <div class="form-group">
