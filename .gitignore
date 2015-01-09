@@ -30,3 +30,4 @@ coverage
 
 # Ignore bootstrap.css
 /vendor/assers/stylesheets/bootstrap.css
+vendor
