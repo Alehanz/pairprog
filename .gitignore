@@ -27,3 +27,6 @@ pg_upgrade_utility.log
 
 # Ignore SimpleCov reports
 coverage
+
+# Ignore bootstrap.css
+/vendor/assers/stylesheets/bootstrap.css
