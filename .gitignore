@@ -37,3 +37,6 @@ vendor
 /app/assets/stylesheets/glyphicons-halflings-regular.svg
 /app/assets/stylesheets/glyphicons-halflings-regular.ttf
 /app/assets/stylesheets/glyphicons-halflings-regular.woff
+
+# Ignore local asset pipeline cache files
+/public/assets
