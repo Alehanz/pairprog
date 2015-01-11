@@ -39,4 +39,4 @@ vendor
 /app/assets/stylesheets/glyphicons-halflings-regular.woff
 
 # Ignore local asset pipeline cache files
-/public/assets
+#/public/assets
