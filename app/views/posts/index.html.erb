@@ -20,7 +20,7 @@
               <%= link_to post.title, post, style: "text-decoration:none;" %>
               <h6>
                 posted by
-                <%= post.user.email %>
+                <%= post.user.name ||= post.user.email %>
                 <%= time_ago_in_words(post.created_at) + " ago" %>
               </h6>
             </td>

@@ -1,47 +1,54 @@
 <div class="row">
 <div class="col-md-12">
-  <div class="showpost">
-    <table class="table">
-      <tr>
-        <th><h1><%= @post.title %></h1></th>
-      </tr>
-      <tr>
-        <td><%= @post.description %></td>
-      </tr>
-    </table>
-  </div>
-  <div class="form-group">
+  <div class="post-container">
+  <h1><%= @post.title %></h1>
+  <p class="lead">
+    by <%= @post.user.name ||= @post.user.email %>
+  </p>
+  <p><%= @post.created_at.strftime("%d %b. %Y") %></p>
+
+  <br />
+
+  <p><%= @post.description %></p>
+
+  <hr>
+
+  <div class="edit">
     <% if current_user == @post.user %>
-      <%= button_to "Edit", edit_post_path(@post), :method => :get, class: "btn btn-success pull-left" %>
+      <%= link_to "Edit", edit_post_path(@post), :method => :get %>
     <% end %>
   </div>
-  <%= form_for ([@post, @comment]) do |f| %>
-    <%= render 'shared/error_messages', object: f.object %>
 
-    <div class="form-group">
-      <%= f.label :comment %>
-      <%= f.bootsy_area :comment_body, class: "form-control", placeholder: "Max. 3000 characters", style:"height:150px" %>
-      <%= f.hidden_field :post_id, :value => @post.id %>
-    </div>
+  <div class="well">
+    <h4>Leave a Comment:</h4>
+    <%= form_for ([@post, @comment]) do |f| %>
+      <%= render "shared/error_messages", object: f.object %>
 
-    <div class="form-group">
-      <%= f.submit "Add Comment", class: "btn btn-success" %>
-    </div>
-  <% end %>
-  <div class="col-md-12">
-    <div class="showcomments">
-      <h3>Comments</h3>
-      <% @comments.each do |comment| %>
-        <p><%= comment.user.username || comment.user.email if comment.user %></p>
-        <p><%= comment.created_at %></p>
-        <br />
-        <p><%= comment.comment_body %></p>
-        <% if comment.user_id == current_user.id %>
-          <p><%= link_to "Delete", [comment.post, comment], method: :delete, data: { confirm: "Are you sure?" } %></p>
-          <p><%= link_to "Edit", edit_post_comment_path({:id => comment.id, :post_id => comment.post_id, :comment_body => comment.comment_body, :user_id => comment.user_id}) %></p>
-        <% end %>
+        <div class="from-group">
+          <%= f.bootsy_area :comment_body, class: "form-control", placeholder: "Max. 3000 characters", style:"height:150px" %>
+          <%= f.hidden_field :post_id, :value => @post.id %>
+        </div>
+        <%= f.submit "Add Comment", class: "btn btn-success" %>
+  </div>
+    <% end %>
+
+  <hr>
+
+
+  <% @comments.each do |comment| %>
+  <div class="media">
+    <div class="media-body">
+      <h4 class="media-heading"><%= comment.user.username || comment.user.email if comment.user %>
+        <small><%= comment.created_at.strftime("%d %b. %Y %H:%M") %></small>
+      </h4>
+      <%= comment.comment_body %>
+      <% if comment.user_id == current_user.id %>
+        <p><%= link_to "Delete", [comment.post, comment], method: :delete, data: { confirm: "Are you sure?" } %></p>
+        <p><%= link_to "Edit", edit_post_comment_path({:id => comment.id, :post_id => comment.post_id, :comment_body => comment.comment_body, :user_id => comment.user_id}) %></p>
       <% end %>
     </div>
   </div>
-</div>
+  <% end %>
+
+  </div>
 </div>

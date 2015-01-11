@@ -10,7 +10,7 @@ feature "User updates their post" do
 
     visit post_path(@post)
 
-    click_button "Edit"
+    click_link "Edit"
 
     fill_in "post_title", with: "Updated title"
     fill_in "post_description", with: "Updated description"
@@ -26,7 +26,7 @@ feature "User updates their post" do
 
     visit post_path(@post)
 
-    click_button "Edit"
+    click_link "Edit"
 
     fill_in "post_title", with: nil
     fill_in "post_description", with: nil

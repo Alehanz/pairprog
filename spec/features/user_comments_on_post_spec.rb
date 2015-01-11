@@ -29,7 +29,7 @@ feature "User comments on post" do
     fill_in "comment_comment_body", with: "Test comment"
     click_button "Add Comment"
 
-    expect(page).to have_content("Test comment")
+    expect(page).to have_content("Comment created!")
   end
 
   scenario "can't add comment with more than 3000 characters" do
