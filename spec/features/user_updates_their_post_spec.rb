@@ -35,4 +35,14 @@ feature "User updates their post" do
 
     expect(page).to have_content("The form contains 2 errors")
   end
+
+  scenario "deletes their post" do
+    log_in(@post.user)
+
+    visit post_path(@post)
+
+    click_link "Delete"
+
+    expect(page).to have_content("Post deleted!")
+  end
 end

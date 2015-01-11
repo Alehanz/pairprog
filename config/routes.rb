@@ -13,7 +13,7 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :posts, only: [:index, :new, :create, :show, :edit, :update] do
+  resources :posts, only: [:index, :new, :create, :show, :edit, :update, :destroy] do
     resources :comments, only: [:index, :new, :create, :destroy, :edit, :update], controller: "comments"
   end
 

@@ -15,7 +15,8 @@
 
   <div class="edit">
     <% if current_user == @post.user %>
-      <%= link_to "Edit", edit_post_path(@post), :method => :get %>
+      <%= link_to "Edit", edit_post_path(@post), method: :get %>
+      <%= link_to "Delete", @post, method: :delete, data: { confirm: "Are you sure?" } %>
     <% end %>
   </div>
 
@@ -42,9 +43,10 @@
         <small><%= comment.created_at.strftime("%d %b. %Y %H:%M") %></small>
       </h4>
       <%= comment.comment_body %>
+      <br />
       <% if comment.user_id == current_user.id %>
-        <p><%= link_to "Delete", [comment.post, comment], method: :delete, data: { confirm: "Are you sure?" } %></p>
-        <p><%= link_to "Edit", edit_post_comment_path({:id => comment.id, :post_id => comment.post_id, :comment_body => comment.comment_body, :user_id => comment.user_id}) %></p>
+        <%= link_to "Edit", edit_post_comment_path({:id => comment.id, :post_id => comment.post_id, :comment_body => comment.comment_body, :user_id => comment.user_id}) %>
+        <%= link_to "Delete", [comment.post, comment], method: :delete, data: { confirm: "Are you sure?" } %>
       <% end %>
     </div>
   </div>
