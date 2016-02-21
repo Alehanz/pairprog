@@ -1,4 +1,4 @@
-# Pairprog (Work in Progress)
+# Pairprog (On pause)
 
 Building a simple forum-like message board aimed to help people find 
 pair programming partners online.
